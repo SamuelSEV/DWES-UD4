@@ -11,14 +11,20 @@
     <table border="1">
     <?php
         $file = fopen("starwars.txt", "r");
+        $linea = explode(",", fgets($file));
+        echo "<tr>";
+        echo "<th>";
+            echo "<td>$linea[0]</td>" . "<td>$linea[1]</td>" . "<td>$linea[2]</td>" . "<td>$linea[3]</td>" . "<td>$linea[4]</td>" . "<td>$linea[5]</td>" . "<td>$linea[6]</td>" . "<td>$linea[7]</td>" . "<td>$linea[8]</td>" . "<td>$linea[9]</td>";
+        echo "</th>";
+        echo "</tr>";
         while (!feof($file)) {
-            echo "<tr>";
             $linea = explode(",", fgets($file));
-            
+            echo "<tr>";
             foreach ($linea as $key) {
                 echo "<td>$key</td>";
             }
             echo "</tr>";
+            
         }
 
         fclose($file);
