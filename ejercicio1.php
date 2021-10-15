@@ -13,9 +13,9 @@
         $file = fopen("starwars.txt", "r");
         $linea = explode(",", fgets($file));
         echo "<tr>";
-        echo "<th>";
-            echo "<td>$linea[0]</td>" . "<td>$linea[1]</td>" . "<td>$linea[2]</td>" . "<td>$linea[3]</td>" . "<td>$linea[4]</td>" . "<td>$linea[5]</td>" . "<td>$linea[6]</td>" . "<td>$linea[7]</td>" . "<td>$linea[8]</td>" . "<td>$linea[9]</td>";
-        echo "</th>";
+        
+        echo "<th>$linea[0]</th>" . "<th>$linea[1]</th>" . "<th>$linea[2]</th>" . "<th>$linea[3]</th>" . "<th>$linea[4]</th>" . "<th>$linea[5]</th>" . "<th>$linea[6]</th>" . "<th>$linea[7]</th>" . "<th>$linea[8]</th>" . "<th>$linea[9]</th>";
+        
         echo "</tr>";
         while (!feof($file)) {
             $linea = explode(",", fgets($file));
