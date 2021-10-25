@@ -10,8 +10,11 @@
     <?php
         include 'ejercicio6.php';
         creaConexion();
-        creaVuelo("Sevilla","Cordoba","2021-10-21 09:16:52","Airbus","A390");
-        modificaVuelo(3,"Suiza");
+        creaVuelo("Sevilla","Jaen","2021-10-21 09:16:52","Airbus","A390");
+        modificaVuelo("Suiza",3);
+        modificaCompañia("Iberia",10);
+        eliminaVuelo(3);
+        extraerVuelos();
 
     ?>
 </body>
