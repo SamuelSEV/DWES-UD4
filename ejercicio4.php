@@ -28,7 +28,8 @@
             echo "<br>";
         }
         else {
-
+            //mysqli_fetch_assoc
+            echo "<h1>mysqli_fetch_assoc</h1>";
             $fila=mysqli_fetch_assoc($result); 
             echo "<table border='1'>";
             echo "<tr>";
@@ -36,20 +37,84 @@
                 print_r ("<td>" . $key . "</td>");
             }
             echo "</tr>";
-            
-            foreach ($fila as $key => $value) {
+            $result = mysqli_query($mysqli,"SELECT * FROM `vuelos`");
+            while ($fila=mysqli_fetch_assoc($result)) {
+                
                 echo "<tr>";
-                    print_r ("<td>" . $fila[$key] . "</td>");
-                    print_r ("<td>" . $fila[$key] . "</td>");
-                    print_r ("<td>" . $fila[$key] . "</td>");
-                    print_r ("<td>" . $fila[$key] . "</td>");
-                    print_r ("<td>" . $fila[$key] . "</td>");
-                    print_r ("<td>" . $fila[$key] . "</td>");
+                foreach ($fila as $key) {
+                    print_r ("<td>" . $key . "</td>");
+                }
                 echo "</tr>";
             }
             
             echo "</table>";
+
+            //mysqli_fetch_object
+            echo "<h1>mysqli_fetch_object</h1>";
+            $result = mysqli_query($mysqli,"SELECT * FROM `vuelos`");
+            $fila=mysqli_fetch_object($result); 
+            echo "<table border='1'>";
+            echo "<tr>";
+            foreach ($fila as $key => $value) {
+                print_r ("<td>" . $key . "</td>");
+            }
+            echo "</tr>";
+            $result = mysqli_query($mysqli,"SELECT * FROM `vuelos`");
+            while ($fila=mysqli_fetch_object($result)) {
+                
+                echo "<tr>";
+                foreach ($fila as $key) {
+                    print_r ("<td>" . $key . "</td>");
+                }
+                echo "</tr>";
+            }
             
+            echo "</table>";
+
+            //mysqli_fetch_array
+            echo "<h1>mysqli_fetch_array</h1>";
+            $result = mysqli_query($mysqli,"SELECT * FROM `vuelos`");
+            $fila=mysqli_fetch_array($result); 
+            echo "<table border='1'>";
+            echo "<tr>";
+            foreach ($fila as $key => $value) {
+                print_r ("<td>" . $key . "</td>");
+            }
+            echo "</tr>";
+            $result = mysqli_query($mysqli,"SELECT * FROM `vuelos`");
+            while ($fila=mysqli_fetch_array($result)) {
+                
+                echo "<tr>";
+                foreach ($fila as $key) {
+                    print_r ("<td>" . $key . "</td>");
+                }
+                echo "</tr>";
+            }
+            
+            echo "</table>";
+
+            //mysqli_fetch_row
+            echo "<h1>mysqli_fetch_row</h1>";
+            $result = mysqli_query($mysqli,"SELECT * FROM `vuelos`");
+            $fila=mysqli_fetch_row($result); 
+            echo "<table border='1'>";
+            echo "<tr>";
+
+            foreach ($fila as $key => $value) {
+                print_r ("<td>" . $key . "</td>");
+            }
+            echo "</tr>";
+            $result = mysqli_query($mysqli,"SELECT * FROM `vuelos`");
+            while ($fila=mysqli_fetch_row($result)) {
+                
+                echo "<tr>";
+                foreach ($fila as $key) {
+                    print_r ("<td>" . $key . "</td>");
+                }
+                echo "</tr>";
+            }
+            
+            echo "</table>";
             
         }
         mysqli_close($mysqli);
