@@ -41,9 +41,12 @@
             while ($fila=mysqli_fetch_assoc($result)) {
                 
                 echo "<tr>";
-                foreach ($fila as $key) {
-                    print_r ("<td>" . $key . "</td>");
-                }
+                echo "<td>", $fila["ID"],"</td>";
+                echo "<td>", $fila["Destino"],"</td>";
+                echo "<td>", $fila["Origen"],"</td>";
+                echo "<td>", $fila["Fecha"],"</td>";
+                echo "<td>", $fila["Companya"],"</td>";
+                echo "<td>", $fila["Modelo"],"</td>";
                 echo "</tr>";
             }
             
@@ -63,9 +66,12 @@
             while ($fila=mysqli_fetch_object($result)) {
                 
                 echo "<tr>";
-                foreach ($fila as $key) {
-                    print_r ("<td>" . $key . "</td>");
-                }
+                echo "<td>",$fila->ID,"</td>";
+                echo "<td>",$fila->Origen,"</td>";
+                echo "<td>",$fila->Destino,"</td>";
+                echo "<td>",$fila->Fecha,"</td>";
+                echo "<td>",$fila->Companya,"</td>";
+                echo "<td>",$fila->Modelo,"</td>";
                 echo "</tr>";
             }
             
@@ -88,12 +94,12 @@
             while ($fila=mysqli_fetch_array($result)) {
                 
                 echo "<tr>";
-                printf ("<td>%s</td>\n", $fila[0]);
-                printf ("<td>%s</td>\n", $fila[1]);
-                printf ("<td>%s</td>\n", $fila[2]);
-                printf ("<td>%s</td>\n", $fila[3]);
-                printf ("<td>%s</td>\n", $fila[4]);
-                printf ("<td>%s</td>\n", $fila[5]);
+                printf ("<td>%s</td>\n", $fila['ID']);
+                printf ("<td>%s</td>\n", $fila['Origen']);
+                printf ("<td>%s</td>\n", $fila['Destino']);
+                printf ("<td>%s</td>\n", $fila['Fecha']);
+                printf ("<td>%s</td>\n", $fila['Companya']);
+                printf ("<td>%s</td>\n", $fila['Modelo']);
                 echo "</tr>";
             }
             
@@ -105,19 +111,24 @@
             $fila=mysqli_fetch_row($result); 
             echo "<table border='1'>";
             echo "<tr>";
-
-            foreach ($fila as $key => $value) {
-                print_r ("<td>" . $key . "</td>");
-            }
+            echo "<td>ID</td>";
+            echo "<td>Origen</td>";
+            echo "<td>Destino</td>";
+            echo "<td>Fecha</td>";
+            echo "<td>Compañia</td>";
+            echo "<td>Modelo</td>";
             echo "</tr>";
             $result = mysqli_query($mysqli,"SELECT * FROM `vuelos`");
             while ($fila=mysqli_fetch_row($result)) {
                 
-                echo "<tr>";
-                foreach ($fila as $key) {
-                    print_r ("<td>" . $key . "</td>");
-                }
-                echo "</tr>";
+            echo "<tr>";
+            echo "<td>", $fila[0],"</td>";
+            echo "<td>", $fila[1],"</td>";
+            echo "<td>", $fila[2],"</td>";
+            echo "<td>", $fila[3],"</td>";
+            echo "<td>", $fila[4],"</td>";
+            echo "<td>", $fila[5],"</td>";
+            echo "</tr>";
             }
             
             echo "</table>";

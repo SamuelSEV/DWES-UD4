@@ -40,7 +40,7 @@
          echo "La consulta no ha funcionado correctamente";
      }
      else {
-         echo "Se ha borrado ", mysqli_affected_rows($mysqli), " filas.";
+         echo "Se ha insertado ", mysqli_affected_rows($mysqli), " filas.";
          echo "<br>";
          echo "El ultimo vuelo insertado es ", mysqli_insert_id($mysqli);
      }

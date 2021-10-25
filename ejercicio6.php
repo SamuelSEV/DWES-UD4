@@ -8,7 +8,7 @@
 </head>
 <body>
     <?php
-        function conectBD (){
+        function creaConexion() {
             @$mysqli = mysqli_connect('localhost','root','root','agenciaviajes');
             $error = mysqli_connect_errno();
             if($error!=null){
@@ -19,6 +19,30 @@
                 echo "conectado correctamente <br>";
             }
         }
+        function creaVuelo ($arg1, $arg2, $arg3, $arg4, $arg5){
+            $origen = $arg1;
+            $destino = $arg2;
+            $fecha = $arg3;
+            $compañia = $arg4;
+            $modelo = $arg5;
+            $sql = "INSERT INTO vuelos (Origen, Destino, Fecha, Companya, Modelo) VALUES (origen=?, destino=?, fecha=?, compañia=?, modelo=?)";
+            $consulta = mysqli_stmt_init($mysqli);
+            if ($stmt = mysqli_prepare($mysqli, $sql)) {
+                mysqli_stmt_bind_param($stmt, "si", $origen, $destino, $fecha, $compañia, $modelo);
+                mysqli_stmt_execute($stmt);
+                mysqli_stmt_close($stmt);
+            }
+        }
+        function modificaVuelo ($destino, $id){
+            $sql="UPDATE vuelos SET Destino=? WHERE id=?";
+            $consulta = mysqli_stmt_init($mysqli);
+            if ($stmt = mysqli_prepare($mysqli, $sql)) {
+                mysqli_stmt_bind_param($stmt, "si", $destino, $id);
+                mysqli_stmt_execute($stmt);
+                mysqli_stmt_close($stmt);
+            }
+        }
+
     ?>
 </body>
 </html>
