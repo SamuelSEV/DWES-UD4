@@ -47,6 +47,7 @@
                     print_r ("<td>" . $fila[$key] . "</td>");
                 echo "</tr>";
             }
+            
             echo "</table>";
             
             
