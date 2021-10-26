@@ -34,7 +34,7 @@
             echo "<table border='1'>";
             echo "<tr>";
             foreach ($fila as $key => $value) {
-                print_r ("<td>" . $key . "</td>");
+                print_r ("<th>" . $key . "</th>");
             }
             echo "</tr>";
             $result = mysqli_query($mysqli,"SELECT * FROM `vuelos`");
@@ -56,7 +56,7 @@
             echo "<table border='1'>";
             echo "<tr>";
             foreach ($fila as $key => $value) {
-                print_r ("<td>" . $key . "</td>");
+                print_r ("<th>" . $key . "</th>");
             }
             echo "</tr>";
             $result = mysqli_query($mysqli,"SELECT * FROM `vuelos`");
@@ -77,12 +77,12 @@
             $fila=mysqli_fetch_array($result); 
             echo "<table border='1'>";
             echo "<tr>";
-            echo "<td>ID</td>";
-            echo "<td>Origen</td>";
-            echo "<td>Destino</td>";
-            echo "<td>Fecha</td>";
-            echo "<td>Compañia</td>";
-            echo "<td>Modelo</td>";
+            echo "<th>ID</th>";
+            echo "<th>Origen</th>";
+            echo "<th>Destino</th>";
+            echo "<th>Fecha</th>";
+            echo "<th>Compañia</th>";
+            echo "<th>Modelo</th>";
             echo "</tr>";
             $result = mysqli_query($mysqli,"SELECT * FROM `vuelos`");
             while ($fila=mysqli_fetch_array($result)) {
@@ -107,7 +107,7 @@
             echo "<tr>";
 
             foreach ($fila as $key => $value) {
-                print_r ("<td>" . $key . "</td>");
+                print_r ("<th>" . $key . "</th>");
             }
             echo "</tr>";
             $result = mysqli_query($mysqli,"SELECT * FROM `vuelos`");
