@@ -66,7 +66,7 @@
         return $retorno;
     }
 
-    function extraerVuelos() {
+    /*function extraerVuelos() {
         $mysqli = creaConexion();
         $result = mysqli_query($mysqli,"SELECT * FROM vuelos");
         $retorno=false;
@@ -96,19 +96,20 @@
         }
         mysqli_close($mysqli);
         return $retorno;
-    }
+    }*/
 
-    /*function extraeVuelo(){
+    function extraeVuelo(){
         $mysqli = creaConexion();
         $sql = "SELECT * FROM vuelos";
         $result = mysqli_query($mysqli,$sql);
         mysqli_close($mysqli);
         return $result;
-    }
         $vuelos = extraeVuelo();
         while ($fila=mysqli_fetch_assoc($vuelos)) {
             print_r($fila);
             echo "<br>";
-        }*/
+        }
+    }
+        
 
 ?>

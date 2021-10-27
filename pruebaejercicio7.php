@@ -8,13 +8,13 @@
 </head>
 <body>
     <?php
-        require 'ejercicio6.php';
-        creaConexion();
-        creaVuelo("Rusia","Cuba","2021-10-21 09:16:52","Airbus","A390");
-        modificaVuelo("Madrid",6);
-        modificaCompañia("Rayaner",10);
-        eliminaVuelo(25);
-        extraerVuelos();
+        require 'ejercicio7.php';
+        crearConexion();
+        crearVuelo("Rusia","Cuba","2021-10-21 09:16:52","Airbus","A390");
+        modificaVuelo("Madrid",12);
+        modificaCompañia("Rayaner",13);
+        eliminaVuelo(23);
+        extraeVuelo();
         //extraeVuelo();
 
     ?>

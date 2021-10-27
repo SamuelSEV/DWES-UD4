@@ -1,6 +1,6 @@
 <?php
 function crearConexion(){
-    @$mysqli = new mysqli("localhost", "developer", "developer", "agenciaviajes");
+    @$mysqli = new mysqli("localhost", "root", "root", "agenciaviajes");
     if ($mysqli->connect_errno) {
     echo "<p>Error conectando a la base de datos: ". $mysqli->connect_error;
     }
@@ -22,49 +22,60 @@ function crearVuelo($origen,$destino,$fecha,$companya,$modelo){
     return $retorno;
 }
 function modificaVuelo ($destino, $id){
-    $mysqli = creaConexion();
+    $mysqli = crearConexion();
     $sql="UPDATE vuelos SET Destino=? WHERE ID=?";
-    $consulta = $mysqli -> stmt_init($mysqli);
+    $mysqli -> stmt_init();
     $retorno=false;
-    if ($stmt = $mysqli -> prepare($mysqli, $sql)) {
-        $stmt -> bind_param($stmt, "si", $destino, $id);
-        $retorno = $stmt -> execute($stmt);
-        $stmt -> close($stmt);
+    if ($stmt = $mysqli -> prepare($sql)) {
+        $stmt -> bind_param("si", $destino, $id);
+        $retorno = $stmt -> execute();
+        $stmt -> close();
     }
     $mysqli->close();
     return $retorno;
 }
 
 function modificaCompañia ($compañia, $id){
-    $mysqli = creaConexion();
+    $mysqli = crearConexion();
     $sql="UPDATE vuelos SET Companya=? WHERE ID=?";
-    $consulta = $mysqli -> stmt_init($mysqli);
+    $mysqli -> stmt_init();
     $retorno=false;
-    if ($stmt = $mysqli -> prepare($mysqli, $sql)) {
-        $stmt -> bind_param($stmt, "si", $compañia, $id);
-        $retorno = $stmt -> execute($stmt);
-        $stmt -> close($stmt);
+    if ($stmt = $mysqli -> prepare($sql)) {
+        $stmt -> bind_param("si", $compañia, $id);
+        $retorno = $stmt -> execute();
+        $stmt -> close();
     }
     $mysqli->close();
     return $retorno;
 }
 
 function eliminaVuelo ($id){
-    $mysqli = creaConexion();
+    $mysqli = crearConexion();
     $sql="DELETE FROM vuelos WHERE ID = ?";
-    $consulta = $mysqli -> stmt_init($mysqli);
+    $mysqli -> stmt_init();
     $retorno=false;
-    if ($stmt = $mysqli -> prepare($mysqli, $sql)) {
-        $stmt -> bind_param($stmt, "i", $id);
-        $retorno = $stmt -> execute($stmt);
-        $stmt -> close($stmt);
+    if ($stmt = $mysqli -> prepare($sql)) {
+        $stmt -> bind_param("i", $id);
+        $retorno = $stmt -> execute();
+        $stmt -> close();
     }
     $mysqli->close();
     return $retorno;
 }
-
-function extraerVuelos() {
-    $mysqli = creaConexion();
+function extraeVuelo(){
+    $mysqli = crearConexion();
+    $sql = "SELECT * FROM vuelos";
+    $result = $mysqli -> query($sql);
+    $mysqli -> close();
+    return $result;
+    $vuelos = extraeVuelo();
+    while ($fila =  $vuelos -> fetch_assoc()) {
+        print_r($fila);
+        echo "<br>";
+    }
+}
+/*function extraerVuelos() {
+    $mysqli = crearConexion();
     $result = mysqli_query($mysqli,"SELECT * FROM vuelos");
     $retorno=false;
     if ($result==false) {
@@ -91,7 +102,7 @@ function extraerVuelos() {
         
         echo "</table>";
     }
-    $mysqli -> close($mysqli);
+    $mysqli -> close();
     return $retorno;
-}
+}*/
 ?>

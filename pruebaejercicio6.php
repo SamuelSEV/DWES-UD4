@@ -14,7 +14,7 @@
         modificaVuelo("Suiza",3);
         modificaCompañia("Iberia",10);
         eliminaVuelo(28);
-        extraerVuelos();
+        extraeVuelo();
         //extraeVuelo();
 
     ?>
