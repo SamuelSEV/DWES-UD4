@@ -7,6 +7,7 @@
         $conn = new PDO("mysql:host=$servidor;dbname=$basesDatos", $usuario, $pass);
         echo "Conectado correctamente";
         echo "<br>";
+        
         //PDO::FETCH_ASSOC
         echo "<h1>PDO::FETCH_ASSOC</h1>";
         echo "<table border='1'>";
