@@ -14,8 +14,12 @@
         modificaVuelo("Suiza",3);
         modificaCompañia("Iberia",10);
         eliminaVuelo(28);
-        extraeVuelo();
-        //extraeVuelo();
+        extraerVuelos();
+        $vuelos = extraeVuelo();
+        while ($fila=mysqli_fetch_assoc($vuelos)) {
+            print_r($fila);
+            echo "<br>";
+        }
 
     ?>
 </body>

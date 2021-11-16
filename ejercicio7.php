@@ -68,11 +68,6 @@ function extraeVuelo(){
     $result = $mysqli -> query($sql);
     $mysqli -> close();
     return $result;
-    $vuelos = extraeVuelo();
-    while ($fila =  $vuelos -> fetch_assoc()) {
-        print_r($fila);
-        echo "<br>";
-    }
 }
 /*function extraerVuelos() {
     $mysqli = crearConexion();

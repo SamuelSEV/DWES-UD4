@@ -15,7 +15,11 @@
         modificaCompañia("Rayaner",13);
         eliminaVuelo(23);
         extraeVuelo();
-        //extraeVuelo();
+        $vuelos = extraeVuelo();
+        while ($fila =  $vuelos -> fetch_assoc()) {
+            print_r($fila);
+            echo "<br>";
+        }
 
     ?>
 </body>
